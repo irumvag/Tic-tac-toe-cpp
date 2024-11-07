@@ -30,7 +30,7 @@ void display0()
 class playing{
     private:
     int a[9]={0},b[9]={0};
-    char c[9];
+    char c[9]={};
     public:
     int p2,p1;
     int s;
@@ -44,7 +44,7 @@ class playing{
             for(int j=0;j<3;j++)
                 {
                     cout<<"  |  ";
-                    if(c[j]==NULL)
+                    if(c[j]=='\0')
                     {
                         cout<<j+1;
                     }
@@ -59,7 +59,7 @@ class playing{
                 cout<<"  |     |     |     |\n";
             for(int i=3;i<6;i++){
                 cout<<"  |  ";
-                if(c[i]==NULL)
+                if(c[i]=='\0')
                     {
                         cout<<i+1;
                     }
@@ -74,7 +74,7 @@ class playing{
             cout<<"  |     |     |     |\n";
             for(int i=6;i<9;i++){
                 cout<<"  |  ";
-                if(c[i]==NULL)
+                if(c[i]=='\0')
                     {
                         cout<<i+1;
                     }
