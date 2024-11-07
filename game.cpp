@@ -38,7 +38,13 @@ class playing{
     void players();
     void input1();
     void input2();
-    void update(){
+    void update();
+    void check()
+    {
+        
+    }
+};
+void playing::update(){
         cout<<"  +-----------------+\n";
             cout<<"  |     |     |     |\n";
             for(int j=0;j<3;j++)
@@ -86,8 +92,7 @@ class playing{
             cout<<"  |\n";
             cout<<"  |     |     |     |\n";
             cout<<"  +-----------------+\n\n";
-    }   
-};
+}   
 void playing::players(){
     cout<<"\nYou are most welcome in TIC-TAC-TOE Game!!!!\n\n";
     display0();
