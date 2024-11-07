@@ -36,7 +36,72 @@ class playing{
     int s;
     string name1,name2;
     void players();
-    void input1(){
+    void input1();
+    void input2();
+    void update(){
+        cout<<"  +-----------------+\n";
+            cout<<"  |     |     |     |\n";
+            for(int j=0;j<3;j++)
+                {
+                    cout<<"  |  ";
+                    if(c[j]==NULL)
+                    {
+                        cout<<j+1;
+                    }
+                    else
+                    {
+                        cout<<c[j];
+                    }
+                }
+                cout<<"  |\n";
+                cout<<"  |     |     |     |\n";
+                cout<<"  +-----------------+\n";
+                cout<<"  |     |     |     |\n";
+            for(int i=3;i<6;i++){
+                cout<<"  |  ";
+                if(c[i]==NULL)
+                    {
+                        cout<<i+1;
+                    }
+                    else
+                    {
+                        cout<<c[i];
+                    }
+                }
+            cout<<"  |\n";
+            cout<<"  |     |     |     |\n";
+            cout<<"  +-----------------+\n";
+            cout<<"  |     |     |     |\n";
+            for(int i=6;i<9;i++){
+                cout<<"  |  ";
+                if(c[i]==NULL)
+                    {
+                        cout<<i+1;
+                    }
+                    else
+                    {
+                        cout<<c[i];
+                    }
+                }
+            cout<<"  |\n";
+            cout<<"  |     |     |     |\n";
+            cout<<"  +-----------------+\n\n";
+    }   
+};
+void playing::players(){
+    cout<<"\nYou are most welcome in TIC-TAC-TOE Game!!!!\n\n";
+    display0();
+    cout<<"Enter first player name:";
+    cin>>name1;
+    cout<<"\nEnter Second player name:";
+    cin>>name2;
+    system("clear");
+    cout<<"\nYou are most welcome in TIC-TAC-TOE Game!!!!\n\n";
+    cout<<"   First player  is represented by 'X':"<<name1<<endl;
+    cout<<"   Second player is represented by 'O':"<<name1<<endl<<endl;
+    display0();
+    }
+void playing::input1(){
         bool t,f;
         int ic;
         cout<<"\n\n  Enter position #"<<name1<<" you want to play from 1-9:";
@@ -60,8 +125,8 @@ class playing{
             cout<<"\nInvalid value!\n";
             input1();
         }
-    }
-    void input2(){
+}
+void playing::input2(){
         bool t,f;
         int ic;
         cout<<"\n\n  Enter position #"<<name2<<" you want to play from 1-9:";
@@ -85,24 +150,7 @@ class playing{
             cout<<"\nInvalid value!\n";
             input1();
         }
-    }
-    void update(){
-        
-    }
-};
-void playing::players(){
-    cout<<"\nYou are most welcome in TIC-TAC-TOE Game!!!!\n\n";
-    display0();
-    cout<<"Enter first player name:";
-    cin>>name1;
-    cout<<"\nEnter Second player name:";
-    cin>>name2;
-    system("clear");
-    cout<<"\nYou are most welcome in TIC-TAC-TOE Game!!!!\n\n";
-    cout<<"   First player  is represented by 'X':"<<name1<<endl;
-    cout<<"   Second player is represented by 'O':"<<name1<<endl<<endl;
-    display0();
-    }
+}
 int main(){
     playing p1;
     p1.players();
