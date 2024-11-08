@@ -9,7 +9,7 @@ class playing{
     int result=0;
     public:
     int p2,p1;
-    int s;
+    int s,end=10;
     string name1,name2;
     void players();
     void input1();
@@ -18,19 +18,17 @@ class playing{
     void check()
     {
         result++;
-        cout<<(c[0]==c[1]&&c[1]==c[2]&&c[2]=='X');
         if((c[0]==c[1]&&c[1]==c[2]&&c[2]=='X')||(c[3]==c[4]&&c[4]==c[5]&&c[5]=='X')||(c[6]==c[7]&&c[7]==c[8]&&c[8]=='X')||(c[2]==c[4]&&c[4]==c[6]&&c[6]=='X')||(c[0]==c[4]&&c[4]==c[8]&&c[8]=='X')||(c[0]==c[3]&&c[3]==c[6]&&c[6]=='X')||(c[1]==c[4]&&c[4]==c[7]&&c[7]=='X')||(c[2]==c[5]&&c[5]==c[8]&&c[8]=='X'))
         {
-            cout<<"\n\n\n    The winner is :"<<name1<<" ,You won!!!";
-            system("exit");
-            exit;
+            cout<<"\n\n\n    The winner is "<<name1<<" ,You won!!!";
+            end=1;
         }
         else if((c[0]==c[1]&&c[1]==c[2]&&c[2]=='O')||(c[3]==c[4]&&c[4]==c[5]&&c[5]=='O')||(c[6]==c[7]&&c[7]==c[8]&&c[8]=='O')||(c[2]==c[4]&&c[4]==c[6]&&c[6]=='O')||(c[0]==c[4]&&c[4]==c[8]&&c[8]=='O')||(c[0]==c[3]&&c[3]==c[6]&&c[6]=='O')||(c[1]==c[4]&&c[4]==c[7]&&c[7]=='O')||(c[2]==c[5]&&c[5]==c[8]&&c[8]=='O'))
         {
             cout<<"\n\n\n    The winner is "<<name2<<" ,You won!!!";
-            exit;
+            end=1;
         }
-        else if(result==18)
+        else if(result==9)
         {
             cout<<"Draw happened repeat!! \n We start\n";
             a[9]={0};b[9]={0};
@@ -157,9 +155,16 @@ int main(){
     p1.input1();
     p1.update();
     p1.check();
+    if(p1.end==1){
+        break;
+    }
     p1.input2();
     p1.update();
     p1.check();
+    if(p1.end==1){
+        break;
     }
+    }
+    cout<<"\n\n Thanks you for playing Tic Tac Toe!!, you are welcome again!\n\n";
     return 0;
 }
