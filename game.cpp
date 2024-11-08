@@ -31,9 +31,21 @@ class playing{
         else if(result==9)
         {
             cout<<"Draw happened repeat!! \n We start\n";
-            a[9]={0};b[9]={0};
-            c[9]={};
+            for(int d=0;d<9;d++)
+            {
+            a[d]=0;
+            b[d]=0;
+            c[d]='\0';
+            }
         } 
+    }
+    void restart(){
+        for(int d=0;d<9;d++)
+        {
+            a[d]=0;
+            b[d]=0;
+            c[d]='\0';
+        }
     }
 };
 void playing::update(){
@@ -149,6 +161,7 @@ void playing::input2(){
         }
 }
 int main(){
+    char k;
     playing p1;
     p1.players();
     for(int i=1;i<10000;i++){
@@ -156,13 +169,35 @@ int main(){
     p1.update();
     p1.check();
     if(p1.end==1){
-        break;
+        cout<<"\nWould you like to play again!(Y/N):";
+        cin>>k;
+        if(k=='n'||k=='N'){
+            break;
+        }
+        else
+        {
+            p1.restart();
+            p1.end=10;
+            p1.update();
+            continue;
+        }
     }
     p1.input2();
     p1.update();
     p1.check();
     if(p1.end==1){
-        break;
+        cout<<"\nWould you like to play again!(Y/N):";
+        cin>>k;
+        if(k=='n'||k=='N'){
+            break;
+        }
+        else
+        {
+            p1.restart();
+            p1.end=10;
+            p1.update();
+            continue;
+        }
     }
     }
     cout<<"\n\n Thanks you for playing Tic Tac Toe!!, you are welcome again!\n\n";
