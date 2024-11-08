@@ -1,36 +1,12 @@
 #include<iostream>
 #include<cstdlib>
 using namespace std;
-void display0()
-    {
-    cout<<"  +-----------------+\n";
-    cout<<"  |     |     |     |\n";
-    for(int j=1;j<=3;j++)
-        {
-            cout<<"  |  "<<j;
-        }
-        cout<<"  |\n";
-        cout<<"  |     |     |     |\n";
-        cout<<"  +-----------------+\n";
-        cout<<"  |     |     |     |\n";
-    for(int i=4;i<=6;i++){
-        cout<<"  |  "<<i;
-        }
-    cout<<"  |\n";
-    cout<<"  |     |     |     |\n";
-    cout<<"  +-----------------+\n";
-    cout<<"  |     |     |     |\n";
-    for(int i=7;i<=9;i++){
-        cout<<"  |  "<<i;
-        }
-    cout<<"  |\n";
-    cout<<"  |     |     |     |\n";
-    cout<<"  +-----------------+\n\n";
-    }
+
 class playing{
     private:
     int a[9]={0},b[9]={0};
     char c[9]={};
+    int result=0;
     public:
     int p2,p1;
     int s;
@@ -41,7 +17,25 @@ class playing{
     void update();
     void check()
     {
-        
+        result++;
+        cout<<(c[0]==c[1]&&c[1]==c[2]&&c[2]=='X');
+        if((c[0]==c[1]&&c[1]==c[2]&&c[2]=='X')||(c[3]==c[4]&&c[4]==c[5]&&c[5]=='X')||(c[6]==c[7]&&c[7]==c[8]&&c[8]=='X')||(c[2]==c[4]&&c[4]==c[6]&&c[6]=='X')||(c[0]==c[4]&&c[4]==c[8]&&c[8]=='X')||(c[0]==c[3]&&c[3]==c[6]&&c[6]=='X')||(c[1]==c[4]&&c[4]==c[7]&&c[7]=='X')||(c[2]==c[5]&&c[5]==c[8]&&c[8]=='X'))
+        {
+            cout<<"\n\n\n    The winner is :"<<name1<<" ,You won!!!";
+            system("exit");
+            exit;
+        }
+        else if((c[0]==c[1]&&c[1]==c[2]&&c[2]=='O')||(c[3]==c[4]&&c[4]==c[5]&&c[5]=='O')||(c[6]==c[7]&&c[7]==c[8]&&c[8]=='O')||(c[2]==c[4]&&c[4]==c[6]&&c[6]=='O')||(c[0]==c[4]&&c[4]==c[8]&&c[8]=='O')||(c[0]==c[3]&&c[3]==c[6]&&c[6]=='O')||(c[1]==c[4]&&c[4]==c[7]&&c[7]=='O')||(c[2]==c[5]&&c[5]==c[8]&&c[8]=='O'))
+        {
+            cout<<"\n\n\n    The winner is "<<name2<<" ,You won!!!";
+            exit;
+        }
+        else if(result==18)
+        {
+            cout<<"Draw happened repeat!! \n We start\n";
+            a[9]={0};b[9]={0};
+            c[9]={};
+        } 
     }
 };
 void playing::update(){
@@ -95,7 +89,7 @@ void playing::update(){
 }   
 void playing::players(){
     cout<<"\nYou are most welcome in TIC-TAC-TOE Game!!!!\n\n";
-    display0();
+    update();
     cout<<"Enter first player name:";
     cin>>name1;
     cout<<"\nEnter Second player name:";
@@ -103,8 +97,8 @@ void playing::players(){
     system("clear");
     cout<<"\nYou are most welcome in TIC-TAC-TOE Game!!!!\n\n";
     cout<<"   First player  is represented by 'X':"<<name1<<endl;
-    cout<<"   Second player is represented by 'O':"<<name1<<endl<<endl;
-    display0();
+    cout<<"   Second player is represented by 'O':"<<name2<<endl<<endl;
+    update();
     }
 void playing::input1(){
         bool t,f;
@@ -162,8 +156,10 @@ int main(){
     for(int i=1;i<10000;i++){
     p1.input1();
     p1.update();
+    p1.check();
     p1.input2();
     p1.update();
+    p1.check();
     }
     return 0;
 }
