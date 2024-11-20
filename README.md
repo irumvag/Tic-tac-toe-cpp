@@ -1,5 +1,11 @@
 # Tic-tac-toe-cpp
 Tic-tac-toe-cpp game
+<code>
+g++ game.cpp
+</code>
+<code>
+./a.out
+</code>
 This is what is done in all the this game!
 
 You have been tasked with creating a simple console-based Tic-Tac-Toe game in C++. The game should allow two players to take turns making moves on a 3x3 grid until one player wins or the game ends in a draw.
